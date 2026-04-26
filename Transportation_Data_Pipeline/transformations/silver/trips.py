@@ -9,10 +9,9 @@ from pyspark.sql.functions import col, lower, current_timestamp
 @dp.expect("valid_driver_rating","driver_rating BETWEEN 1 AND 10")
 @dp.expect("valid_passenger_rating","passenger_rating BETWEEN 1 AND 10")
 
-def trips_silver():
+def trips_silver_staging():
     df_bronze = spark.readStream.table("transportation.bronze.trips")
-    df_silver = df_bronze.withColumn("passenger_type",lower("passenger_type"))
-    df_silver = df_bronze.select(
+    df_silver = df_bronze.withColumn("passenger_type",lower("passenger_type")).select(
         col("trip_id").alias("id"),
         col("date").alias("business_date"),
         col("city_id").alias("city_id"),

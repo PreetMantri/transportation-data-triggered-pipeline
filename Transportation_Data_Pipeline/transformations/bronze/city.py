@@ -13,7 +13,7 @@ SOURCE_PATH = "/Volumes/transportation/bronze/data-store/city/city.csv"
         "source_format":"csv",
         "delta.enableChangeDataFeed":"true",
         "delta.autoOptimize.optimizeWrite":"true",
-        "delta.autoOptimze.autoCompact":"true"
+        "delta.autoOptimize.autoCompact":"true"
     }
 )
 def city_bronze():
